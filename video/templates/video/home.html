@@ -7,6 +7,8 @@
 </head>
 <body>
     <h1>Bienvenue {{ user.username }}</h1>
+    <a href="{% url 'profile' %}">Mon Profile</a>
+    <br><br>
     {% if user.is_authenticated %}
         <form action="{% url 'logout' %}" method="post">
             {% csrf_token %}

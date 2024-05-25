@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.views import LoginView
-from django.views.generic import CreateView, DeleteView, FormView
+from django.views.generic import CreateView, DetailView, FormView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from .models import CustomeUser
@@ -28,7 +28,9 @@ class SignInView(LoginView):
     authentication_form = CustomeUserLoginForm
     template_name = 'AuthUserManager/login.html'
 
-@login_required
-class ProfilView(LoginRequiredMixin, DeleteView):
+class ProfilView(LoginRequiredMixin, DetailView):
     model = CustomeUser
     template_name = 'AuthUserManager/profil.html'
+
+    def get_object(self):
+        return self.request.user
