@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'AuthUserManager',
+    'video',
 ]
 
 MIDDLEWARE = [
@@ -131,3 +132,7 @@ STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'AuthUserManager.CustomeUser' 
+
+LOGOUT_REDIRECT_URL = 'login'
+LOGIN_REDIRECT_URL = '/video/home/' 
+LOGIN_URL = 'login'
