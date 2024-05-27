@@ -1,6 +1,6 @@
 from django.urls import path
-from video.views import home
+from video.views import HomeView
 
 urlpatterns = [
-    path('home/', home, name='home'),
+    path('home/', HomeView.as_view(), name='home'),
 ]
