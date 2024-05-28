@@ -9,6 +9,7 @@ from django.urls import reverse_lazy
 from .forms import CustomeUserLoginForm, CustomeUserRegistrationFrom
 from django.contrib import messages
 
+
 class SignUpView(CreateView):
     model = CustomeUser
     template_name = 'AuthUserManager/register.html'
@@ -27,6 +28,7 @@ class SignUpView(CreateView):
 class SignInView(LoginView):
     authentication_form = CustomeUserLoginForm
     template_name = 'AuthUserManager/login.html'
+
 
 class ProfilView(LoginRequiredMixin, DetailView):
     model = CustomeUser
