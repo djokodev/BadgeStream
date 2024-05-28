@@ -143,3 +143,6 @@ AUTH_USER_MODEL = 'AuthUserManager.CustomeUser'
 LOGOUT_REDIRECT_URL = 'login'
 LOGIN_REDIRECT_URL = '/video/home/' 
 LOGIN_URL = 'login'
+
+ALLOWED_VIDEO_FORMATS = ['mp4', 'avi', 'mov']
+MAX_VIDEO_SIZE_MB = 250
