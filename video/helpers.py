@@ -1,10 +1,9 @@
-import magic
+from mimetypes import guess_type
 from django.conf import settings
 from django.core.exceptions import ValidationError
 
 def format_size_verify(file):
-    mime = magic.Magic(mime=True)
-    file_mime_type = mime.from_buffer(file.read(1024))
+    file_mime_type, _ = guess_type(file.name)
     file.seek(0) 
 
     allowed_mime_types = {
@@ -17,8 +16,8 @@ def format_size_verify(file):
     if file_extension not in settings.ALLOWED_VIDEO_FORMATS:
         raise ValidationError(f"Format non supporté: {file_extension}. Les formats supportés sont {settings.ALLOWED_VIDEO_FORMATS}")
 
-    if file_mime_type != allowed_mime_types[file_extension]:
-        raise ValidationError(f"Type MIME non supporté: {file_mime_type}. Le type MIME doit être {allowed_mime_types[file_extension]}")
+    if file_mime_type != allowed_mime_types.values():
+        raise ValidationError(f"Type MIME non supporté: {file_mime_type}. Le type MIME doit être l'un des suivants: {list(allowed_mime_types.values())}")
 
     file_size_mb = file.size / (1024 * 1024)
     if file_size_mb > settings.MAX_VIDEO_SIZE_MB:
