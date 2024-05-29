@@ -23,4 +23,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('user/', include("AuthUserManager.urls")),
     path('video/', include("video.urls")),
+    path("badges/", include("badges.urls"))
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
