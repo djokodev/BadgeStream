@@ -16,7 +16,7 @@ def format_size_verify(file):
     if file_extension not in settings.ALLOWED_VIDEO_FORMATS:
         raise ValidationError(f"Format non supporté: {file_extension}. Les formats supportés sont {settings.ALLOWED_VIDEO_FORMATS}")
 
-    if file_mime_type != allowed_mime_types.values():
+    if file_mime_type not in allowed_mime_types.values():
         raise ValidationError(f"Type MIME non supporté: {file_mime_type}. Le type MIME doit être l'un des suivants: {list(allowed_mime_types.values())}")
 
     file_size_mb = file.size / (1024 * 1024)

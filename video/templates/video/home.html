@@ -4,16 +4,49 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Accueil</title>
+    <style>
+        .video-container {
+            margin-top: 20px;
+        }
+        .video-container > div {
+            display: inline-block; 
+            margin-right: 50px; 
+            margin-bottom: 20px; 
+        }
+    </style>
 </head>
 <body>
     <h1>Bienvenue {{ user.username }}</h1>
-    <a href="{% url 'profile' %}">Mon Profile</a>
+    <a href="{% url 'profile' %}">Mon Profil</a>
     <br><br>
+    <a href="{% url 'upload_video' %}">publier une vidéo</a>
+    <br><br>
+
     {% if user.is_authenticated %}
         <form action="{% url 'logout' %}" method="post">
             {% csrf_token %}
             <button type="submit">Déconnexion</button>
         </form>
     {% endif %}
+    <br><br>
+
+    <h2>Vidéos publiées</h2>
+    <div class="video-container">
+        {% if videos.exists %}
+            {% for video in videos %}
+                <div>
+                    <a href="{% url 'video_detail' video.id %}">
+                        <video width="320" height="240" controls poster="{{ video.thumbnail.url }}">
+                            <source src="{{ video.file.url }}" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                        <h2>{{ video.title }}</h2>
+                    </a>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>Aucune vidéo n'a été publiée pour le moment. Soyez le premier à publier une vidéo 😏</p>
+        {% endif %}
+    </div>
 </body>
 </html>
