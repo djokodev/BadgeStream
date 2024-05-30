@@ -18,13 +18,16 @@
 
     <div>
         <h3>Vos badges :</h3>
-        {% if badges %}
-            <ul>
-                {% for badge in badges %}
-                    <li>{{ badge.name }} - {{ badge.description }}</li>
-                    <img src="{% static 'img/badge1.jpg' %}" alt="image de badge" width="50px" height="50px">
-                {% endfor %}
-            </ul>
+        {% if user.badges.exists %}
+            {% for badge in user.badges.all %}
+                {% if badge.name == "Vétéran" %}
+                    <li>{{  badge.name  }} - {{ badge.description }}</li>
+                    <img src="{% static 'img/badge3.jpg' %}" alt="badge de veterant" width="50px" height="50px">
+                {% elif badge.name == "Étoile Montante" %}
+                    <li>{{  badge.name  }} - {{ badge.description }}</li>
+                    <img src="{% static 'img/badge1.jpg' %}" alt="badge etoile Montante" width="50px" height="50px">
+                {% endif %}
+            {% endfor %}
         {% else %}
             <p>Aucun badge attribué.</p>
         {% endif %}

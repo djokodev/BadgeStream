@@ -42,4 +42,5 @@ class ProfilView(LoginRequiredMixin, DetailView):
         user = self.request.user
         badges = user.badges.all()
         context['badges'] = badges
+        context['user'] = user
         return context
