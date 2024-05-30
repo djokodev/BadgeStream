@@ -1,3 +1,6 @@
 from django.test import TestCase
+from .models import Badge
 
-# Create your tests here.
+class TestCaseBadge(TestCase):
+    def setUp(self):
+        pass
