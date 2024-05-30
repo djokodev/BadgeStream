@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth import logout
 from django.contrib.auth.views import LoginView
-from django.views.generic import CreateView, DetailView, FormView
+from django.views.generic import CreateView, DetailView, DeleteView
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.decorators import login_required
 from .models import CustomeUser
@@ -43,4 +44,15 @@ class ProfilView(LoginRequiredMixin, DetailView):
         badges = user.badges.all()
         context['badges'] = badges
         context['user'] = user
+        return context
+    
+
+class DeleteAccountView(LoginRequiredMixin, DeleteView):
+    model = CustomeUser
+    template_name = 'AuthUserManager/delete_account.html'
+    success_url = reverse_lazy('login')
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['user'] = self.request.user
         return context
