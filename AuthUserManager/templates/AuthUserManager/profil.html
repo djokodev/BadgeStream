@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,11 +7,27 @@
     <title>Profile</title>
 </head>
 <body>
+
     <h2>Profile de {{ object.username }}</h2>
     <p>vos informations :</p>
+
     <div>
         <p>Username : {{ object.username }}</p>
         <p>Email : {{ object.email }}</p>
+    </div>
+
+    <div>
+        <h3>Vos badges :</h3>
+        {% if badges %}
+            <ul>
+                {% for badge in badges %}
+                    <li>{{ badge.name }} - {{ badge.description }}</li>
+                    <img src="{% static 'img/badge1.jpg' %}" alt="image de badge" width="50px" height="50px">
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>Aucun badge attribué.</p>
+        {% endif %}
     </div>
 
     <div>

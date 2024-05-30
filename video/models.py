@@ -8,6 +8,7 @@ class AnimatedVideo(models.Model):
     uploaded_at = models.DateTimeField(auto_now_add=True)
     uploaded_by = models.ForeignKey(CustomeUser, on_delete=models.CASCADE)
     thumbnail = models.ImageField(upload_to='thumbnails/', null=True, blank=True)
+    views = models.PositiveIntegerField(default=0) 
 
     def __str__(self):
         return self.title

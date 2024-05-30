@@ -14,6 +14,7 @@
     <p>{{ video.description }}</p>
     <div>
         <p>par: {{ video.uploaded_by }} le {{ video.uploaded_at }}</p>
+        <p>{{ video.views }} vue(s)</p>
     </div>
 
     {% if user.is_authenticated %}

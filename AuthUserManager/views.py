@@ -36,3 +36,10 @@ class ProfilView(LoginRequiredMixin, DetailView):
 
     def get_object(self):
         return self.request.user
+    
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        user = self.request.user
+        badges = user.badges.all()
+        context['badges'] = badges
+        return context
