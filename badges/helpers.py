@@ -1,4 +1,5 @@
 from .models import Badge
+from video.models import AnimatedVideo
 from django.utils import timezone
 from datetime import timedelta
 
@@ -26,7 +27,6 @@ def assign_veteran_badge(user):
             "description": "Un utilisateur est inscrit sur le site depuis un an déjà",
         },
     )
-    
     if created: 
         user.badges.add(badge)
         user.save()
@@ -35,3 +35,30 @@ def check_veteran_status_and_assign_badge(user):
     one_year_ago = timezone.now() - timedelta(days=365)
     if user.date_joined <= one_year_ago:
         assign_veteran_badge(user)
+
+
+def assign_collector_badge(user):
+    badge, created = Badge.objects.get_or_create(
+        name="Collectionneur",
+        defaults={
+            "description": "Attribué pour avoir téléverser plus de 5 vidéos",
+        },
+    )
+    
+    if not user.badges.filter(id=badge.id).exists():
+        user.badges.add(badge)
+        user.save()
+
+def check_collector_status_and_assign_badge(user):
+    uploaded_videos_count = AnimatedVideo.objects.filter(uploaded_by=user).count()
+    if uploaded_videos_count >= 5:
+        assign_collector_badge(user)
+
+
+def remove_collector_badge(user):
+    try:
+        collector_badge = Badge.objects.get(name="Collectionneur")
+        user.badges.remove(collector_badge)
+        user.save()
+    except Badge.DoesNotExist:
+        pass

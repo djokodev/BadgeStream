@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmer la suppression</title>
+</head>
+<body>
+    <h2>Confirmer la suppression de la vidéo : {{ object.title }}</h2>
+    <p>Êtes-vous sûr de vouloir supprimer cette vidéo ?</p>
+    
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Oui, supprimer</button>
+        <a href="{% url 'video_detail' object.pk %}">Annuler</a>
+    </form>
+</body>
+</html>

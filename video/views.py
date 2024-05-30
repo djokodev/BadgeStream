@@ -57,7 +57,7 @@ class VideoDetailView(DetailView):
 
     def get(self, request, *args, **kwargs):
         video = self.get_object()
-        viewed_videos = request.session.get('viewed_videos', [])
+        viewed_videos = request.session.get('viewed_videos', [])    
         if video.pk not in viewed_videos:
             self.increment_views(video)
             viewed_videos.append(video.pk)
@@ -67,6 +67,7 @@ class VideoDetailView(DetailView):
 
 class VideoDeleteView(LoginRequiredMixin, DeleteView):
     model = AnimatedVideo
+    template_name = 'video/video_confirm_delete.html'
     success_url = reverse_lazy('home')
 
     def get_queryset(self):
