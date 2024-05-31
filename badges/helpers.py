@@ -27,7 +27,7 @@ def assign_veteran_badge(user):
             "description": "Un utilisateur est inscrit sur le site depuis un an déjà",
         },
     )
-    if created: 
+    if not user.badges.filter(id=badge.id).exists():
         user.badges.add(badge)
         user.save()
 

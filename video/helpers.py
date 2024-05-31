@@ -9,7 +9,7 @@ def format_size_verify(file):
     allowed_mime_types = {
         'mp4': 'video/mp4',
         'avi': 'video/x-msvideo',
-        'mov': 'video/quicktime'
+        'mov': 'video/quicktime',
     }
 
     file_extension = file.name.split('.')[-1].lower()
