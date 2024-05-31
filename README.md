@@ -32,6 +32,18 @@
     `DB_PASSWORD=motDePasseDeVotreUtilisateur`
     `DB_HOST=localhost`
     `DB_PORT=5432`
+    
+  - Créer un environnement virtuel : Il est recommandé d'utiliser un environnement virtuel pour isoler les dépendances de votre projet des autres projets Python sur votre système. Pour créer un environnement virtuel, les 
+    utilisateurs peuvent utiliser la commande **python -m venv suivie du nom de l'environnement**. Par exemple : naviguer dans le dossier du projet, pour les utilisateurs de **Windows** : `cd votre-projet` , pour ceux de 
+    macOS et Linux `cd votre-projet/` exécuteur ensuite `python -m venv nomDeVotreEnvironmenetViertuel` pour créer votre environnement virtuel
+
+  - Activer l'environnement virtuel : vous devez activer l'environnement virtuel pour pouvoir installer les dépendances et exécuter le projet. Pour activer l'environnement virtuel, Sur Windows `env\Scripts\activate` ou       si vous utiliser un terminal git bash utiliser la commande `source nomDeVotreEnvironmenetViertuel/Scripts/activate`, si cette commande c'est executer sans probleme vous devrier voir le nom de votre environement     
+    virtuel dans votre console
+
+  - Installer les dépendances : Installer les dépendances du projet à partir du fichier requirements.txt. Pour ce faire utilisez la commande `pip install -r requirements.txt`
 ###
+
+
+
 
 
