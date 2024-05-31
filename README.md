@@ -23,15 +23,15 @@
   - Accorder des privilèges à l'utilisateur que vous avez créé : Vous devez accorder des privilèges à nomDeVotreUtilisateur pour qu'il puisse accéder à la base de données. Pour ce faire, vous pouvez
     utiliser l'interface graphique pgAdmin ou la ligne de commande psql. Voici un exemple d'octroi de privilèges à l'aide de psql : `GRANT ALL PRIVILEGES ON DATABASE nomDeVotreBD TO nomDeVotreUtilisateur;`
     
-  - Cloner le projet : Cloner le dépôt Git du projet sur votre ordinateur. Pour ce faire, vous pouvez utiliser la commande git clone
+  - Cloner le projet : Cloner le dépôt Git du projet sur votre ordinateur. Pour ce faire, vous pouvez utiliser la commande `git clone https://github.com/djokodev/badgeStream.git`
     
   - Configurer les variables d'environnement : Vous devez configurer les variables d'environnement pour que votre application Django puisse se connecter à la base de données PostgreSQL. Pour ce faire, vous devez créer un 
-    fichier .env à la racine de votre projet (au même niveau que manage.py) et y ajouter les informations suivantes : 
-    DB_NAME=nomDeVotreBD
-    DB_USER=nomDeVotreUtilisateur
-    DB_PASSWORD=motDePasseDeVotreUtilisateur
-    DB_HOST=localhost
-    DB_PORT=5432
+    fichier `.env` à la racine de votre projet (au même niveau que manage.py) et y ajouter les informations suivantes : 
+    `DB_NAME=nomDeVotreBD`
+    `DB_USER=nomDeVotreUtilisateur`
+    `DB_PASSWORD=motDePasseDeVotreUtilisateur`
+    `DB_HOST=localhost`
+    `DB_PORT=5432`
 ###
 
 
