@@ -6,9 +6,11 @@ from .models import Badge
 from badges.helpers import check_views_and_assign_badge, check_veteran_status_and_assign_badge, check_collector_status_and_assign_badge, remove_collector_badge
 
 @receiver(post_save, sender=AnimatedVideo)
-def update_badge(sender, instance, created, **kwargs):
-    if not created:
+def update_badge(sender, instance, created, update_fields=None, **kwargs): # TODO: modifier le nom
+    if update_fields and 'views' in update_fields:
         check_views_and_assign_badge(instance)
+    elif created:
+        check_collector_status_and_assign_badge(instance.uploaded_by)
 
 
 @receiver(user_logged_in)
@@ -16,10 +18,11 @@ def check_veteran_status_on_login(sender, user, request, **kwargs):
     check_veteran_status_and_assign_badge(user)
 
 
-@receiver(post_save, sender=AnimatedVideo)
-def check_collector_status_on_upload(sender, instance, created, **kwargs):
-    if created:
-        check_collector_status_and_assign_badge(instance.uploaded_by)
+# @receiver(post_save, sender=AnimatedVideo)
+# def check_collector_status_on_upload(sender, instance, created, **kwargs):
+#     if created:
+#         check_collector_status_and_assign_badge(instance.uploaded_by)
+
 
 @receiver(post_delete, sender=AnimatedVideo)
 def update_collector_badge(sender, instance, **kwargs):

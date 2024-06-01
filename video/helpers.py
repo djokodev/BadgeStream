@@ -8,7 +8,6 @@ def format_size_verify(file):
 
     allowed_mime_types = {
         'mp4': 'video/mp4',
-        'avi': 'video/x-msvideo',
         'mov': 'video/quicktime',
     }
 

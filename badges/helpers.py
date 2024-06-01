@@ -16,9 +16,11 @@ def assign_star_rising_badge(user):
         user.save()
 
 def check_views_and_assign_badge(video):
+    print(video.views)
+    video.refresh_from_db()
+    print(video.views)
     if video.views >= 1000:
         assign_star_rising_badge(video.uploaded_by)
-
 
 def assign_veteran_badge(user):
     badge, created = Badge.objects.get_or_create(

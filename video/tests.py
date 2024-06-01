@@ -52,7 +52,7 @@ class TestCaseVideo(TestCase):
             invalid_file = SimpleUploadedFile("invalidfile.txt", b"invalid content", content_type="text/plain")
             AnimatedVideo.objects.create(
                 title='Test Video',
-                description='This is a test video.',
+                description='This is a test video.',    
                 file=invalid_file,
                 uploaded_by=self.user
             )

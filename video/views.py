@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.views.generic import TemplateView
+from django.db.models import F
 from .forms import VideoUploadForm
 from .models import AnimatedVideo
 from django.views.generic.edit import CreateView
@@ -52,8 +53,8 @@ class VideoDetailView(DetailView):
         return context
     
     def increment_views(self, video):
-        video.views += 1
-        video.save() 
+        video.views = F('views') + 1
+        video.save(update_fields = ['views']) 
 
     def get(self, request, *args, **kwargs):
         video = self.get_object()
