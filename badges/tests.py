@@ -5,7 +5,7 @@ from AuthUserManager.models import CustomeUser
 from django.utils import timezone
 from datetime import timedelta
 from .helpers import ( 
-    check_views_and_assign_badge, 
+    check_views_and_assign_star_rising_badge, 
     check_veteran_status_and_assign_badge, 
     check_collector_status_and_assign_badge, 
     remove_collector_badge
@@ -31,7 +31,7 @@ class TestCaseAssignmentBage(TestCase):
         self.assertEqual(self.user.badges.count(), 0)
         self.video.views = 500
         self.video.save()
-        check_views_and_assign_badge(self.video)
+        check_views_and_assign_star_rising_badge(self.video)
         self.assertEqual(self.user.badges.count(), 0)
 
     
@@ -39,7 +39,7 @@ class TestCaseAssignmentBage(TestCase):
         self.assertEqual(self.user.badges.count(), 0)
         self.video.views = 1000
         self.video.save()
-        check_views_and_assign_badge(self.video)
+        check_views_and_assign_star_rising_badge(self.video)
         self.assertEqual(self.user.badges.count(), 1)
 
     

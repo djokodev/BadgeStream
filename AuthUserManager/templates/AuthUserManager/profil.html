@@ -2,6 +2,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Profile</title>
@@ -34,8 +35,10 @@
         {% else %}
             <p>Aucun badge attribué.</p>
         {% endif %}
+        <hr>
     </div>
 
+    <br><br>
     <br><br>
 
     <div>
@@ -44,6 +47,7 @@
         <a href="{% url 'password_reset' %}">Mot de passe oublié ?</a>
         <br><br>
         <a href="{% url 'delete_account' user.id %}">supprimer mon compte</a>
+        <br><br>
     </div>
   
     <br><br>

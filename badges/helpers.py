@@ -15,7 +15,7 @@ def assign_star_rising_badge(user):
         user.badges.add(badge)
         user.save()
 
-def check_views_and_assign_badge(video):
+def check_views_and_assign_star_rising_badge(video):
     print(video.views)
     video.refresh_from_db()
     print(video.views)
