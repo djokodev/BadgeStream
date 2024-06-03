@@ -52,7 +52,7 @@ $ cd nom-du-projet
 
 ```bash
 $ python -m venv nomDeEnvironementVirutuel
-```
+```  
 
 6. Activer l'environnement virtuel:
 
@@ -62,7 +62,7 @@ $ nomDeEnvironementVirutuel\Scripts\activate
 ```
 ou  si vous utiliser un terminal git bash utiliser la commande:
 ```bash
-`source nomDeVotreEnvironmenetViertuel/Scripts/activate`
+source nomDeVotreEnvironmenetViertuel/Scripts/activate
 ```
 
 sur Mac
@@ -72,10 +72,11 @@ $ source nomDeEnvironementVirutuel/bin/activate
 
 Si cette commande c'est executer sans probleme vous devrier voir le nom de votre environement virtuel dans votre console
 
-6. Installer les dépendances: Installer les dépendances du projet à partir du fichier requirements.txt. Pour ce faire utilisez la commande:
+7. Installer les dépendances: Installer les dépendances du projet à partir du fichier requirements.txt. Pour ce faire utilisez la commande:
 ```python
 pip install -r requirements.txt
-```
+```  
+
 
 7. Appliquer les migrations de la base de données: vous devez appliquer les migrations de la base de données pour créer les tables nécessaires à l'application. Pour ce faire, exécuter la commande
 ```python
