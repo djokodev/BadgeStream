@@ -20,7 +20,8 @@
 
 1. Installation
 
-Telecharger et installer postgreSQL https://www.postgresql.org/download/
+Telecharger et installer postgreSQL https://www.postgresql.org/download/  
+
 
 2. Créer une base de données, un utilisateur et lui attribuer tous les droits sur la base de données
 
@@ -28,7 +29,8 @@ Telecharger et installer postgreSQL https://www.postgresql.org/download/
 $ CREATE DATABASE nomDeVotreBD;
 $ CREATE USER nomDeVotreUtilisateur WITH PASSWORD motDePasseDeVotreUtilisateur;
 $ ALL PRIVILEGES ON DATABASE nomDeVotreBD TO nomDeVotreUtilisateur;
-```
+```  
+
 
 3. Cloner le projet :
 
@@ -36,11 +38,13 @@ Cloner le dépôt Git du projet sur votre ordinateur.
 
 ```bash
 $ git clone https://github.com/djokodev/badgeStream.git
-```
+```  
+
     
 4. Configurer les variables d'environnement:
 
-Cree un fichier `.env` a la racine du projet et copier le contenu du fichier `.env.exemple` ensuite coller a votre `.env`
+Cree un fichier `.env` a la racine du projet et copier le contenu du fichier `.env.exemple` ensuite coller a votre `.env`  
+
     
 5. Créer un environnement virtuel:
 
@@ -53,6 +57,7 @@ $ cd nom-du-projet
 ```bash
 $ python -m venv nomDeEnvironementVirutuel
 ```  
+
 
 6. Activer l'environnement virtuel:
 
@@ -70,15 +75,16 @@ sur Mac
 $ source nomDeEnvironementVirutuel/bin/activate 
 ```
 
-Si cette commande c'est executer sans probleme vous devrier voir le nom de votre environement virtuel dans votre console
+Si cette commande c'est executer sans probleme vous devrier voir le nom de votre environement virtuel dans votre console  
+
 
 7. Installer les dépendances: Installer les dépendances du projet à partir du fichier requirements.txt. Pour ce faire utilisez la commande:
 ```python
 pip install -r requirements.txt
-```  
+```    
 
 
-7. Appliquer les migrations de la base de données: vous devez appliquer les migrations de la base de données pour créer les tables nécessaires à l'application. Pour ce faire, exécuter la commande
+8. Appliquer les migrations de la base de données: vous devez appliquer les migrations de la base de données pour créer les tables nécessaires à l'application. Pour ce faire, exécuter la commande
 ```python
 python manage.py migrate
 ```
@@ -90,16 +96,19 @@ python manage.py migrate
 1. Création d'un superutilisateur: Pour se connecter a l'application ou accéder à l'interface d'administration de Django et gérer les utilisateurs, les vidéos et les badges, vous devez créer un superutilisateur. Pour ce faire, exécutez 
 ```python
 python manage.py createsuperuser
-```
+```  
+
 
 2. Exécuter le serveur de développement: Enfin, vous pouvez exécuter le serveur de développement de Django pour pouvoir accéder à l'application dans un navigateur web. Pour ce faire, exécuter 
 ```python
 python manage.py runserver
-```
+```  
+
 
 L'application sera alors accessible à l'adresse `http://127.0.0.1:8000/` dans votre navigateur web. Cependant, selon la configuration des fichiers URL, la page d'accueil de l'application peut se trouver à une adresse différente `http://127.0.0.1:8000/video/home`
 
-Prenez un moment pour jeter un œil aux fichiers d'URL des différentes applis et découvrir les routes disponibles
+Prenez un moment pour jeter un œil aux fichiers d'URL des différentes applis et découvrir les routes disponibles  
+
 
 happy hacking ✨
 
