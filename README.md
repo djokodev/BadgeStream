@@ -51,25 +51,56 @@ $ cd nom-du-projet
 ```
 
 ```bash
-python -m venv nomDeEnvironementVirutuel
+$ python -m venv nomDeEnvironementVirutuel
 ```
 
-  - **Activer l'environnement virtuel** : vous devez activer l'environnement virtuel pour pouvoir installer les dépendances et exécuter le projet. Pour activer l'environnement virtuel, Sur Windows `env\Scripts\activate` ou  si vous utiliser un terminal git bash utiliser la commande
-     `source nomDeVotreEnvironmenetViertuel/Scripts/activate`, si cette commande c'est executer sans probleme vous devrier voir le nom de votre environement 
-    virtuel dans votre console
+6. Activer l'environnement virtuel:
 
-  - **Installer les dépendances** : Installer les dépendances du projet à partir du fichier requirements.txt. Pour ce faire utilisez la commande `pip install -r requirements.txt`
+Sur Windows 
+```bash
+$ nomDeEnvironementVirutuel\Scripts\activate
+```
+ou  si vous utiliser un terminal git bash utiliser la commande:
+```bash
+`source nomDeVotreEnvironmenetViertuel/Scripts/activate`
+```
 
-  - **Appliquer les migrations de la base de données** : vous devez appliquer les migrations de la base de données pour créer les tables nécessaires à l'application. Pour ce faire, exécuter la commande `python manage.py migrate`
+sur Mac
+```bash
+$ source nomDeEnvironementVirutuel/bin/activate 
+```
+
+Si cette commande c'est executer sans probleme vous devrier voir le nom de votre environement virtuel dans votre console
+
+6. Installer les dépendances: Installer les dépendances du projet à partir du fichier requirements.txt. Pour ce faire utilisez la commande:
+```python
+pip install -r requirements.txt
+```
+
+7. Appliquer les migrations de la base de données: vous devez appliquer les migrations de la base de données pour créer les tables nécessaires à l'application. Pour ce faire, exécuter la commande
+```python
+python manage.py migrate
+```
 
 ## Utilisation 
-###
-## Maintenant que vous avez installé et configuré l'application Django avec PostgreSQL, vous pouvez commencer à l'utiliser 🙂  
-  - **Création d'un superutilisateur** : Pour se connecter a l'application ou accéder à l'interface d'administration de Django et gérer les utilisateurs, les vidéos et les badges, vous devez créer un superutilisateur. Pour ce faire, exécutez `python manage.py createsuperuser`
 
-  - **Exécuter le serveur de développement** : Enfin, vous pouvez exécuter le serveur de développement de Django pour pouvoir accéder à l'application dans un navigateur web. Pour ce faire, exécuter `python manage.py runserver` L'application sera alors accessible à l'adresse
-     http://127.0.0.1:8000/ dans votre navigateur web. Cependant, selon la configuration des fichiers URL, la page d'accueil de l'application peut se trouver à une adresse différente `http://127.0.0.1:8000/video/home`
-###
+### Maintenant que vous avez installé et configuré l'application Django avec PostgreSQL, vous pouvez commencer à l'utiliser 🙂  
+
+1. Création d'un superutilisateur: Pour se connecter a l'application ou accéder à l'interface d'administration de Django et gérer les utilisateurs, les vidéos et les badges, vous devez créer un superutilisateur. Pour ce faire, exécutez 
+```python
+python manage.py createsuperuser
+```
+
+2. Exécuter le serveur de développement: Enfin, vous pouvez exécuter le serveur de développement de Django pour pouvoir accéder à l'application dans un navigateur web. Pour ce faire, exécuter 
+```python
+python manage.py runserver
+```
+
+L'application sera alors accessible à l'adresse `http://127.0.0.1:8000/` dans votre navigateur web. Cependant, selon la configuration des fichiers URL, la page d'accueil de l'application peut se trouver à une adresse différente `http://127.0.0.1:8000/video/home`
+
+Prenez un moment pour jeter un œil aux fichiers d'URL des différentes applis et découvrir les routes disponibles
+
+happy hacking ✨
 
 
 
