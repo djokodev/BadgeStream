@@ -1,29 +1,29 @@
 # Documentation
 
-## Introduction 
-### plateforme web utilisant Django permettant aux utilisateurs de créer des comptes, de télécharger et de visualiser des vidéos animées,  tout en intégrant un système de badges pour récompenser les actions des utilisateurs de facon automatique. Technologies utilisées : Django et PostgreSQL ###
+## Introduction
+### Web platform using Django, allowing users to create accounts, upload, and view animated videos, while incorporating a badge system to automatically reward user actions. Technologies used: Django and PostgreSQL ###
 
-## Prérequis
+## Prerequisites
 ### 
 
-**1. Python**  : Python est le langage de programmation dans lequel Django est écrit. Vous devez avoir une version compatible de Python installée sur votre système. 
+**1. Python**  : Python is the programming language in which Django is written. You must have a compatible version of Python installed on your system.
     
-**2. PostgreSQL** : PostgreSQL est le système de gestion de base de données utilisé dans l'application. Vous devez avoir PostgreSQL installé sur votre système.
+**2. PostgreSQL** :PostgreSQL is the database management system used in the application. You need PostgreSQL installed on your system
 
-**3. Git** : Vous devez avoir besoin de Git pour cloner le dépôt. 
+**3. Git** : Git: You will need Git to clone the repository 
 
 ###
 
-## Instalation
+## Installation
 
-### Instalation et Configuration de BD PostgreSQL
+### Installation and Configuration of PostgreSQL Database
 
 1. Installation
 
-Telecharger et installer postgreSQL https://www.postgresql.org/download/  
+Download and install PostgreSQL from https://www.postgresql.org/download/  
 
 
-2. Créer une base de données, un utilisateur et lui attribuer tous les droits sur la base de données
+2. Create a database, a user, and assign all privileges to the user on the database
 
 ```bash
 $ CREATE DATABASE nomDeVotreBD;
@@ -32,23 +32,23 @@ $ ALL PRIVILEGES ON DATABASE nomDeVotreBD TO nomDeVotreUtilisateur;
 ```  
 
 
-3. Cloner le projet :
+3. Clone the project:
 
-Cloner le dépôt Git du projet sur votre ordinateur.
+Clone the Git repository of the project to your computer.
 
 ```bash
 $ git clone https://github.com/djokodev/badgeStream.git
 ```  
 
     
-4. Configurer les variables d'environnement:
+4. Configure environment variables:
 
-Cree un fichier `.env` a la racine du projet et copier le contenu du fichier `.env.exemple` ensuite coller a votre `.env`  
+Create a `.env` file at the root of the project, copy the content from `.env.exemple` then paste it into your `.env`  
 
     
-5. Créer un environnement virtuel:
+5. Create a virtual environment:
 
-Il est recommandé d'utiliser un environnement virtuel pour isoler les dépendances de votre projet des autres projets Python sur votre système.
+It’s recommended to use a virtual environment to isolate the project dependencies from other Python projects on your system.
 
 ```bash
 $ cd nom-du-projet 
@@ -59,56 +59,59 @@ $ python -m venv nomDeEnvironementVirutuel
 ```  
 
 
-6. Activer l'environnement virtuel:
+6. Activate the virtual environment:
 
-Sur Windows 
+On Windows:
 ```bash
 $ nomDeEnvironementVirutuel\Scripts\activate
 ```
-ou  si vous utiliser un terminal git bash utiliser la commande:
+If using Git Bash:
 ```bash
 source nomDeVotreEnvironmenetViertuel/Scripts/activate
 ```
 
-sur Mac
+On Mac:
 ```bash
 $ source nomDeEnvironementVirutuel/bin/activate 
 ```
 
-Si cette commande c'est executer sans probleme vous devrier voir le nom de votre environement virtuel dans votre console  
+If this command executed without any issues, you should see the name of your virtual environment in your console.
 
 
-7. Installer les dépendances: Installer les dépendances du projet à partir du fichier requirements.txt. Pour ce faire utilisez la commande:
+7. Install dependencies: Install the project dependencies from the requirements.txt file. Use the command:
+   
 ```python
 pip install -r requirements.txt
 ```    
 
 
-8. Appliquer les migrations de la base de données: vous devez appliquer les migrations de la base de données pour créer les tables nécessaires à l'application. Pour ce faire, exécuter la commande
+8. Apply database migrations: You need to apply the database migrations to create the necessary tables for the application. Run the command:
+   
 ```python
 python manage.py migrate
 ```
 
-## Utilisation 
+## Usage
 
-### Maintenant que vous avez installé et configuré l'application Django avec PostgreSQL, vous pouvez commencer à l'utiliser 🙂  
+### Now that you've installed and configured the Django application with PostgreSQL, you can start using it 🙂
 
-1. Création d'un superutilisateur: Pour se connecter a l'application ou accéder à l'interface d'administration de Django et gérer les utilisateurs, les vidéos et les badges, vous devez créer un superutilisateur. Pour ce faire, exécutez 
+1. Create a superuser: To log into the app or access the Django admin interface and manage users, videos, and badges, you need to create a superuser. Run:
+    
 ```python
 python manage.py createsuperuser
 ```  
 
 
-2. Exécuter le serveur de développement: Enfin, vous pouvez exécuter le serveur de développement de Django pour pouvoir accéder à l'application dans un navigateur web. Pour ce faire, exécuter 
+2. Run the development server: Finally, you can start the Django development server to access the application in a web browser. Run:
+    
 ```python
 python manage.py runserver
 ```  
 
 
-L'application sera alors accessible à l'adresse `http://127.0.0.1:8000/` dans votre navigateur web. Cependant, selon la configuration des fichiers URL, la page d'accueil de l'application peut se trouver à une adresse différente `http://127.0.0.1:8000/video/home`
+The application will then be accessible at `http://127.0.0.1:8000/` in your web browser. However, depending on the URL file configuration, the application’s home page may be located at a different address, like `http://127.0.0.1:8000/video/home`
 
-Prenez un moment pour jeter un œil aux fichiers d'URL des différentes applis et découvrir les routes disponibles  
-
+Take a moment to check the URL files of the different apps and discover the available routes.  
 
 happy hacking ✨
 
